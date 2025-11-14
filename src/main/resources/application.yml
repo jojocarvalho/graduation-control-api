@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/graduation_control
+    url: jdbc:postgresql://localhost:5432/jiujitsu_system
     username: postgres
     password: postgres
   jpa:

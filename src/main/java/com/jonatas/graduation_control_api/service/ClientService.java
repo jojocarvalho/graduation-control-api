@@ -52,10 +52,40 @@ public class ClientService {
         return Converter.toClientResponse(clientModel);
     }
 
+    public ClientResponse updateClient(String clientId, ClientRequest clientRequest) {
+        logger.info("Updating client with id {}", clientId);
+
+        ClientModel clientModel = clientRepository
+                .findById(clientId)
+                .orElseThrow(() -> new RuntimeException("Client not found"));
+
+        if (clientRequest.getCpf() != null) {
+            clientModel.setCpf(clientRequest.getCpf());
+        }
+
+        if (clientRequest.getName() != null) {
+            clientModel.setName(clientRequest.getName());
+        }
+
+        if (clientRequest.getAge() != null) {
+            clientModel.setAge(clientRequest.getAge());
+        }
+
+        if (clientRequest.getAddress() != null) {
+            clientModel.setAddress(clientRequest.getAddress());
+        }
+
+        clientRepository.save(clientModel);
+
+        return Converter.toClientResponse(clientModel);
+    }
+
     public void deleteClient(String clientId) {
         logger.info("Deleting client by id {}", clientId);
 
-//        TODO: verificar se o cliente existe antes de deletar
+        ClientModel clientModel = clientRepository
+                .findById(clientId)
+                .orElseThrow(() -> new RuntimeException("Client not found"));
 
         clientRepository.deleteById(clientId);
     }

@@ -1,6 +1,5 @@
 package com.jonatas.graduation_control_api.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,7 +14,7 @@ import lombok.Setter;
 public class ClientModel {
 
     @Id
-    private String clientId = "CLIENT_" + java.util.UUID.randomUUID().toString().replace("-", "").toUpperCase();
+    private String clientId;
 
     @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;

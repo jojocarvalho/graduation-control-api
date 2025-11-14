@@ -48,6 +48,17 @@ public class ClientController {
         return clientService.createClient(clientRequest);
     }
 
+    @PatchMapping("/{clientId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ClientResponse updateClient(
+            @PathVariable String clientId,
+            @Valid @RequestBody ClientRequest clientRequest) {
+
+        logger.info("Updating client with id {}", clientId);
+
+        return clientService.updateClient(clientId, clientRequest);
+    }
+
     @DeleteMapping("/{clientId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteClient(@PathVariable String clientId) {
