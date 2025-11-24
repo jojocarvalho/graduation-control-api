@@ -64,8 +64,6 @@ public class Converter {
         enrollmentsModel.setEnrollmenstId("ENROLLMENT_" + UUID.randomUUID().toString().toUpperCase());
         enrollmentsModel.setStudentCode("");
         enrollmentsModel.setStartTime(LocalDateTime.now());
-        enrollmentsModel.setClient();
-        enrollmentsModel.setPlan();
         return enrollmentsModel;
     }
 
