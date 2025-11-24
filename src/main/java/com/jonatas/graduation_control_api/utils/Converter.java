@@ -1,6 +1,7 @@
 package com.jonatas.graduation_control_api.utils;
 
 import com.jonatas.graduation_control_api.dto.*;
+import com.jonatas.graduation_control_api.model.ClassesModel;
 import com.jonatas.graduation_control_api.model.ClientModel;
 import com.jonatas.graduation_control_api.model.EnrollmentsModel;
 import com.jonatas.graduation_control_api.model.PlansModel;
@@ -75,6 +76,23 @@ public class Converter {
         response.setStudentCode(model.getStudentCode());
         response.setStartTime(model.getStartTime());
         return response;
+    }
+
+    public static ClassesResponse toClassesResponse(ClassesModel classesModel) {
+        ClassesResponse classesResponse = new ClassesResponse();
+        classesResponse.setClassesId("CLASSES_" + UUID.randomUUID().toString().toUpperCase());
+        classesResponse.setClassName(classesModel.getClassName());
+        classesResponse.setClassDayOfWeek(classesModel.getClassDayOfWeek());
+        classesResponse.setClassTime(classesModel.getClassTime());
+        return classesResponse;
+    }
+
+    public static ClassesModel toClassesModel(ClassesRequest classesRequest) {
+        ClassesModel classesModel = new ClassesModel();
+        classesModel.setClassName(classesRequest.getClassName());
+        classesModel.setClassDayOfWeek(classesRequest.getClassDayOfWeek());
+        classesModel.setClassTime(classesRequest.getClassTime());
+        return classesModel;
     }
 
 }

@@ -1,7 +1,0 @@
---
---CREATE TABLE classes (
---    id BIGSERIAL PRIMARY KEY,
---    name VARCHAR(100) NOT NULL,
---    day_of_week VARCHAR(20),
---    class_time TIME NOT NULL
---);
