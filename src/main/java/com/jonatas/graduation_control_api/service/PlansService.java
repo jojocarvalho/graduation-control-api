@@ -35,7 +35,7 @@ public class PlansService {
                 .toList();
     }
 
-    public PlansResponse getPlanById(Integer planId) {
+    public PlansResponse getPlanById(String planId) {
         logger.info("Getting plan by id {}", planId);
 
         PlansModel plansModel = plansRepository.findById(planId).orElseThrow();
@@ -53,7 +53,7 @@ public class PlansService {
         return Converter.toPlansResponse(plansModel);
     }
 
-    public PlansResponse updatePlan(Integer planId, PlansResponse planRequest) {
+    public PlansResponse updatePlan(String planId, PlansResponse planRequest) {
         logger.info("Updating plan with id {}", planId);
 
         PlansModel plansModel = plansRepository
@@ -69,7 +69,7 @@ public class PlansService {
         return Converter.toPlansResponse(plansModel);
     }
 
-    public void deletePlan(Integer planId) {
+    public void deletePlan(String planId) {
         logger.info("Deleting plan by id {}", planId);
 
         plansRepository.deleteById(planId);

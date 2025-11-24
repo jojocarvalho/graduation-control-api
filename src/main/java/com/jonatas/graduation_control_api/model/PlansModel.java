@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 public class PlansModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "plans_id")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "plans_id")
     private String plansId;
 
     @Column(name = "name", nullable = false)

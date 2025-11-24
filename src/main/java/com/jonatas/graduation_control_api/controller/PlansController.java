@@ -32,7 +32,7 @@ public class PlansController {
 
     @GetMapping("/{planId}")
     @ResponseStatus(HttpStatus.OK)
-    public PlansResponse getPlanById(@PathVariable Integer planId) {
+    public PlansResponse getPlanById(@PathVariable String planId) {
         logger.info("Getting plan by id {}", planId);
 
         return plansService.getPlanById(planId);
@@ -49,7 +49,7 @@ public class PlansController {
     @PutMapping("/{planId}")
     @ResponseStatus(HttpStatus.OK)
     public PlansResponse updatePlan(
-            @PathVariable Integer planId,
+            @PathVariable String planId,
             @RequestBody PlansResponse planRequest) {
         logger.info("Updating plan with id {}", planId);
 
@@ -61,7 +61,7 @@ public class PlansController {
 
     @DeleteMapping("/{planId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletePlan(@PathVariable Integer planId) {
+    public void deletePlan(@PathVariable String planId) {
         logger.info("Deleting plan by id {}", planId);
         plansService.deletePlan(planId);
     }
