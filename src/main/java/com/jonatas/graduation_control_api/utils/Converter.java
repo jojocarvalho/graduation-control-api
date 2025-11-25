@@ -111,4 +111,25 @@ public class Converter {
         return attendancesModel;
     }
 
+    public static GraduationResponse toGraduationResponse(GraduationsModel graduationsModel) {
+        GraduationResponse graduationResponse = new GraduationResponse();
+        graduationResponse.setGraduationId("GRADUATION_"+ UUID.randomUUID().toString().toUpperCase());
+        graduationResponse.setBeltColor(graduationsModel.getBeltColor());
+        graduationResponse.setDegree(graduationsModel.getDegree());
+        graduationResponse.setGraduationDate(graduationsModel.getGraduationDate());
+        // clientId - coloca aqui ou não?
+        return graduationResponse;
+    }
+
+    public static GraduationsModel toGraduationModel(GraduationRequest graduationRequest) {
+        GraduationsModel graduationsModel = new GraduationsModel();
+
+        graduationsModel.setBeltColor(graduationRequest.getBeltColor());
+        graduationsModel.setDegree(graduationsModel.getDegree());
+        graduationsModel.setGraduationDate(graduationRequest.getGraduationDate());
+        //clientId - coloca aqui ou não?
+        return graduationsModel;
+    }
 }
+
+

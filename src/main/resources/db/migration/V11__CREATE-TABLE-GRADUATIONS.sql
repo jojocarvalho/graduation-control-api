@@ -1,6 +1,6 @@
 
 CREATE TABLE graduations (
-    id BIGSERIAL PRIMARY KEY,
+    graduation_id VARCHAR(50) PRIMARY KEY,
 
     belt_color VARCHAR(50) NOT NULL,
     degree INT NOT NULL,
