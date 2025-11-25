@@ -1,10 +1,7 @@
 package com.jonatas.graduation_control_api.utils;
 
 import com.jonatas.graduation_control_api.dto.*;
-import com.jonatas.graduation_control_api.model.ClassesModel;
-import com.jonatas.graduation_control_api.model.ClientModel;
-import com.jonatas.graduation_control_api.model.EnrollmentsModel;
-import com.jonatas.graduation_control_api.model.PlansModel;
+import com.jonatas.graduation_control_api.model.*;
 import com.jonatas.graduation_control_api.repository.ClientRepository;
 import com.jonatas.graduation_control_api.repository.PlansRepository;
 import lombok.RequiredArgsConstructor;
@@ -91,6 +88,27 @@ public class Converter {
         classesModel.setClassDayOfWeek(classesRequest.getClassDayOfWeek());
         classesModel.setClassTime(classesRequest.getClassTime());
         return classesModel;
+    }
+
+    public static AttendancesResponse toAttendancesResponse(AttendancesModel attendancesModel){
+        AttendancesResponse attendancesResponse = new AttendancesResponse();
+
+        attendancesResponse.setAttendancesId("ATTENDANCES_" + UUID.randomUUID().toString().toUpperCase());
+        attendancesResponse.setAttendanceDate(attendancesModel.getAttendanceDate());
+        // clientId - coloca aqui ou não?
+        // classId - coloca aqui ou não?
+
+        return attendancesResponse;
+    }
+
+    public static AttendancesModel toAttendancesModel(AttendancesRequest attendancesRequest){
+        AttendancesModel attendancesModel = new AttendancesModel();
+
+        attendancesModel.setAttendanceDate(attendancesRequest.getAttendanceDate());
+        // clientId - coloca aqui ou não?
+        // classId - coloca aqui ou não?
+
+        return attendancesModel;
     }
 
 }
